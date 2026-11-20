@@ -9,8 +9,7 @@ Rôle **Ansible** qui déploie un site **Apache (httpd)** dans un conteneur **Do
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-E95420?logo=ubuntu&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-**Cours :** Bootcamp DevOps EAZYTraining — mini-projet Ansible
-**Auteur :** Dakin Blair Noubouossie
+
 
 ![Site déployé par le rôle](images/webapp.png)
 
