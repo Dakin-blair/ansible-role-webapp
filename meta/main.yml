@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: webapp
+  namespace: dakinblair
+  author: Dakin Blair Noubouossie
+  description: Deploie un site Apache dans un conteneur Docker avec une page personnalisee
+  license: MIT
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - bookworm
+    - name: Ubuntu
+      versions:
+        - jammy
+  galaxy_tags:
+    - docker
+    - apache
+    - httpd
+    - webapp
+
+dependencies: []

@@ -1,0 +1,40 @@
+---
+# Prérequis
+- name: Installer Docker et le module Python docker
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - python3-docker
+    state: present
+    update_cache: true
+
+- name: Demarrer Docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+
+# Page du site
+- name: Creer le dossier du site
+  ansible.builtin.file:
+    path: "{{ webapp_html_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Generer la page index.html
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: "{{ webapp_html_dir }}/index.html"
+    mode: "0644"
+
+# Conteneur Apache
+- name: Lancer le conteneur Apache
+  community.docker.docker_container:
+    name: "{{ webapp_container_name }}"
+    image: "{{ webapp_image }}:{{ webapp_image_tag }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "{{ webapp_port }}:80"
+    volumes:
+      - "{{ webapp_html_dir }}/index.html:/usr/local/apache2/htdocs/index.html"

@@ -1,0 +1,2 @@
+[webapp]
+localhost ansible_connection=local

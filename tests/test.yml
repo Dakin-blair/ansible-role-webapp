@@ -1,0 +1,24 @@
+---
+- name: Tester le role webapp
+  hosts: all
+  become: true
+
+  roles:
+    - role: "{{ playbook_dir }}/.."
+
+  post_tasks:
+    # Vérification du site
+    - name: Recuperer la page du site
+      ansible.builtin.uri:
+        url: "http://localhost:{{ webapp_port }}"
+        return_content: true
+      register: webapp_page
+      retries: 5
+      delay: 3
+      until: webapp_page.status == 200
+
+    - name: Verifier le message de la page
+      ansible.builtin.assert:
+        that:
+          - webapp_message in webapp_page.content
+        success_msg: "Le site affiche bien : {{ webapp_message }}"

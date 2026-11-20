@@ -1,0 +1,10 @@
+---
+# Conteneur Apache
+webapp_container_name: webapp
+webapp_image: httpd
+webapp_image_tag: "2.4"
+webapp_port: 80
+
+# Page du site
+webapp_html_dir: /opt/webapp
+webapp_message: Bienvenue sur
