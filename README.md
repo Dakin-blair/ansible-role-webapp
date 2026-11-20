@@ -173,6 +173,4 @@ Validation réalisée sur **AWS EC2** (Debian 12, t3.micro), avec le rôle **ins
 
 **MIT**
 
-## Auteur
 
-**Dakin Blair Noubouossie** — Bootcamp DevOps EAZYTraining
