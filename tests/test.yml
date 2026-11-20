@@ -4,7 +4,7 @@
   become: true
 
   roles:
-    - role: "{{ playbook_dir }}/.."
+    - role: webapp
 
   post_tasks:
     # Vérification du site
